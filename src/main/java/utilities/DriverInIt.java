@@ -7,10 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DriverInIt{
+public class DriverInIt {
 
-
-	//public static DriverInIt instanceDriver = null;
+	
 	public static WebDriver driver;
 	public static String projectPath = null;
 	public static WebDriverWait wait;
@@ -30,7 +29,7 @@ public class DriverInIt{
 			wait = new WebDriverWait(driver, 20);
 		}
 		return driver;
-	}
+	} 
 
 	//Basic Actions
 

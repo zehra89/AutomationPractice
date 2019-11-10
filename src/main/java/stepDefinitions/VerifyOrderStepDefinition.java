@@ -20,21 +20,22 @@ import locators.TshirtButtonLocator;
 import locators.TshirtImageLocator;
 import utilities.DriverInIt;
 
-public class VerifyOrderStepDefinition extends DriverInIt {
+
+public class VerifyOrderStepDefinition {
 
 	WebDriver driver;
 	WebDriverWait wait;
 	DriverInIt driverInIt;
 	String Url = "http://automationpractice.com/index.php";
 	
+	
 
 	@Before
 	public void getBrowser()
 	{
 		driver = DriverInIt.initialiseBrowser();
-		driverInIt = new DriverInIt();
-		wait = new WebDriverWait(driver,20);
-	}
+	
+	} 
 
 	@Given("^The user is at Homepage$")
 	public void the_user_is_at_Homepage()
@@ -46,30 +47,17 @@ public class VerifyOrderStepDefinition extends DriverInIt {
 	@When("^he clicks on the t-shirt menu$")
 	public void he_clicks_on_the_t_shirt_menu() 
 	{
-		TshirtButtonLocator tshirtObject = new TshirtButtonLocator(driver);
+		TshirtButtonLocator tshirtObject = new TshirtButtonLocator(driver,wait);
 		tshirtObject.click_Tshirt_Button();
 		
-		/*By tShirt = By.xpath("(//a[contains(@title,'T-shirts')])[2]");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(tShirt));
-		driverInIt.click(tShirt); */
-
+		
+	
 	}
 
 	@When("^he adds a t-shirt to his cart$")
 	public void he_adds_a_t_shirt_to_his_cart() throws InterruptedException
 	{
-		/*By tShirt = By.xpath("//img[contains(@alt,'Faded Short Sleeve T-shirts')]");
-		By addToCart = By.xpath("//span[contains(.,'Add to cart')]");
-		By proceedToCheckout = By.xpath("//span[contains(.,'Proceed to checkout')]");
-		
-		
-		driverInIt.click(tShirt)
-		wait.until(ExpectedConditions.visibilityOfElementLocated(addToCart));
-		driverInIt.click(addToCart);
 	
-		wait.until(ExpectedConditions.visibilityOfElementLocated(proceedToCheckout));
-		driverInIt.click(proceedToCheckout);
-		;*/
 		
 		TshirtImageLocator tshirtImageObject = new TshirtImageLocator(driver);
 		tshirtImageObject.click_Tshirt_Image();
@@ -77,11 +65,12 @@ public class VerifyOrderStepDefinition extends DriverInIt {
 		AddToCartLocator addToCartObject = new AddToCartLocator(driver);
 		addToCartObject.click_Add_to_Cart();
 		
+		
 		ProceedToCheckOutLocator proceedToCheckOut = new ProceedToCheckOutLocator(driver);
 		proceedToCheckOut.click_Proceed_to_Checkout();
 		
 
-	}
+	} 
 
 	/*@Then("^he should see it in the Shopping Summary$")
 	public void he_should_see_it_in_the_Shopping_Summary() 
@@ -91,5 +80,5 @@ public class VerifyOrderStepDefinition extends DriverInIt {
 		Assert.assertTrue(isPresent);
 		
 
-	} */
+	}  */
 }
