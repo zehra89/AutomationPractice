@@ -5,23 +5,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TshirtImageLocator {
-	
+
+public class TshirtImageLocator{
+
 	WebDriver driver;
-	
-	public TshirtImageLocator (WebDriver driver)
-	{
+	WebDriverWait wait;
+	public By tshirtImage = By.xpath("//img[contains(@alt,'Faded Short Sleeve T-shirts')]");
+
+	public TshirtImageLocator(WebDriver driver, WebDriverWait wait) {
+
 		this.driver = driver;
-		
+		this.wait = new WebDriverWait(driver, 20);
 	}
 
-	By tshirtImage = By.xpath("//img[contains(@alt,'Faded Short Sleeve T-shirts')]");
-	
-	public void click_Tshirt_Image()
+	public void click (By elementLocation) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
+		driver.findElement(elementLocation).click();
+	}
+
+	/*	public void click_Tshirt_Image()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(tshirtImage));
 		driver.findElement(tshirtImage).click();
-	}
-			
+	} */
+
 }
