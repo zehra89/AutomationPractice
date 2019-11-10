@@ -14,7 +14,7 @@ public class Resource {
 	public static WebDriver driver;
 	public static String projectPath = null;
 	public static WebDriverWait wait;
-	
+
 
 	public static WebDriver initialiseBrowser()
 	{
@@ -63,12 +63,21 @@ public class Resource {
 	{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
 		writeText(elementLocation,username);
-		
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation1));
 		writeText(elementLocation1,password);
-		
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation2));
 		click(elementLocation2);
+	}
+
+	public  <TPage> TPage GetInstance (Class<TPage> pageClass) {
+		try {
+			return pageClass.getDeclaredConstructor().newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
 

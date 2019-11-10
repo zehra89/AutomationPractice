@@ -1,32 +1,31 @@
-package locators;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-public class TshirtImageLocator{
+public class AddToCartPage {
 
 	WebDriver driver;
 	WebDriverWait wait;
-	public By tshirtImage = By.xpath("//img[contains(@alt,'Faded Short Sleeve T-shirts')]");
+	public By addToCart = By.xpath("//span[contains(.,'Add to cart')]");
 
-	public TshirtImageLocator(WebDriver driver, WebDriverWait wait) {
-
+	public AddToCartPage (WebDriver driver)
+	{
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, 20);
+		this.wait = new WebDriverWait(driver,20);
+
 	}
 
 	public void click (By elementLocation) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
 		driver.findElement(elementLocation).click();
 	}
-
-	/*	public void click_Tshirt_Image()
+	/*public void click_Add_to_Cart()
 	{
-		wait.until(ExpectedConditions.visibilityOfElementLocated(tshirtImage));
-		driver.findElement(tshirtImage).click();
-	} */
+		wait.until(ExpectedConditions.visibilityOfElementLocated(addToCart));
+		driver.findElement(addToCart).click();
+	}*/
 
 }

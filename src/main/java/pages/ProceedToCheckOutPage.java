@@ -1,18 +1,18 @@
-package locators;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ProceedToCheckOutLocator {
+public class ProceedToCheckOutPage {
 
 	WebDriver driver;
 	WebDriverWait wait;
 	public By proceedToCheckOut = By.xpath("//span[contains(.,'Proceed to checkout')]");
 
 
-	public ProceedToCheckOutLocator (WebDriver driver)
+	public ProceedToCheckOutPage (WebDriver driver)
 	{
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver,20);

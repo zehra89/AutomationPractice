@@ -1,31 +1,27 @@
-package locators;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddToCartLocator {
+
+public class TshirtButtonPage{
 
 	WebDriver driver;
 	WebDriverWait wait;
-	public By addToCart = By.xpath("//span[contains(.,'Add to cart')]");
+	public By tShirtButtonLocator = By.xpath("(//a[@title='T-shirts'])[2]");
 
-	public AddToCartLocator (WebDriver driver)
-	{
+
+	public TshirtButtonPage(WebDriver driver, WebDriverWait wait){
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver,20);
-
 	}
 
-	public void click (By elementLocation) {
+
+	public void click(By elementLocation) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
 		driver.findElement(elementLocation).click();
-	}
-	/*public void click_Add_to_Cart()
-	{
-		wait.until(ExpectedConditions.visibilityOfElementLocated(addToCart));
-		driver.findElement(addToCart).click();
-	}*/
+	} 
 
 }
