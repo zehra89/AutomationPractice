@@ -38,7 +38,6 @@ public class LoginPart2Step {
 		
 		String title = driver.getTitle();
 		Assert.assertEquals(title, "My account - My Store");
-		System.out.println(title);
 	}
 
 

@@ -47,7 +47,6 @@ public class UpdateFirstNameStep {
 	{
 		String nameDisplayed = driver.findElement(By.xpath("//a[@class='account']")).getText();
 		Assert.assertEquals("Zehra Xyz", nameDisplayed );
-		System.out.println(nameDisplayed);
 	}
 
 

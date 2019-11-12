@@ -30,7 +30,6 @@ public class MyPersonalInformationStep {
 		//Assertion
 		String title = driver.getTitle();
 		Assert.assertEquals(title, "Identity - My Store");
-		System.out.println(title);
 	}
 
 }

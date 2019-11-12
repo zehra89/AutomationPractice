@@ -40,7 +40,6 @@ public class LoginPart1Step {
 		LoginPart2Page login2 = new LoginPart2Page(driver,wait);
 		Boolean a = driver.findElement(login2.email).isDisplayed();
 		Assert.assertTrue(a);
-		System.out.print(a);
 	
 	}
 	
