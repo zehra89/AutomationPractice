@@ -87,9 +87,7 @@ public class VerifyOrderStep {
 
 		// The Shirt Values on the Cart
 		cartPrice = driver.findElement(By.xpath("//span[@class='ajax_block_products_total']")).getText();
-		System.out.println(cartPrice);
 		cartName = driver.findElement(By.xpath("//span[@class='product-name']")).getText();
-		System.out.println(cartName);
 
 		//Assertion
 		Boolean proceed = driver.findElement(By.xpath("//span[contains(.,'Proceed to checkout')]")).isDisplayed();
@@ -117,10 +115,6 @@ public class VerifyOrderStep {
 		//Compare both the shirts
 		Assert.assertEquals(cartName, summaryName);
 		Assert.assertEquals(cartPrice, summaryPrice);
-
-		System.out.println(summaryName);
-		System.out.println(summaryPrice);
-
 		driver.quit();
 	}  
 
