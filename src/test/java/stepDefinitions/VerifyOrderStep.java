@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.io.Resources;
 
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,20 +19,17 @@ import pages.AddToCartPage;
 import pages.ProceedToCheckOutPage;
 import pages.TshirtButtonPage;
 import pages.TshirtImagePage;
+import utilities.PropertiesUtil;
 import utilities.Resource;
 
 
-public class VerifyOrderStepDefinition {
+public class VerifyOrderStep {
 
 	WebDriver driver;
 	WebDriverWait wait;
 	Resources resource;
 	String cartName;
 	String cartPrice;
-	Resource page;
-	String Url = "http://automationpractice.com/index.php";
-
-
 
 
 	@Before
@@ -38,24 +38,26 @@ public class VerifyOrderStepDefinition {
 		driver = Resource.initialiseBrowser();
 	} 
 
-	@Given("^The user is at Homepage$")
-	public void the_user_is_at_Homepage()
+	/*@Given("^The user is at Homepage$")
+	public void the_user_is_at_Homepage() throws IOException
 	{
 		//go to the site
-		driver.get(Url);
+		String siteUrl = PropertiesUtil.getObject("url");
+		driver.get(siteUrl);
 
 		//Assertion
 		String homePageTitle = driver.getTitle();
 		Assert.assertEquals("My Store", homePageTitle);
 
-	}
+	} */
 
 	@When("^he clicks on the t-shirt menu$")
 	public void he_clicks_on_the_t_shirt_menu() 
 	{
+
 		//click the shirt button
-		TshirtButtonPage tshirtObject = new TshirtButtonPage(driver,wait);
-		tshirtObject.click(tshirtObject.tShirtButtonLocator);
+		TshirtButtonPage tshirtObject = new TshirtButtonPage(driver, wait);
+		tshirtObject.click(tshirtObject.tShirtButtonLocator); 
 
 		//Assertion
 		String tShirtSection = driver.getTitle();
@@ -79,7 +81,7 @@ public class VerifyOrderStepDefinition {
 		String myTshirtPage = driver.getTitle();
 		Assert.assertEquals("Faded Short Sleeve T-shirts - My Store", myTshirtPage);
 
-		AddToCartPage addToCartObject = new AddToCartPage(driver);
+		AddToCartPage addToCartObject = new AddToCartPage(driver, wait);
 		addToCartObject.click(addToCartObject.addToCart);
 		Thread.sleep(1000);
 
@@ -99,7 +101,7 @@ public class VerifyOrderStepDefinition {
 	public void he_should_see_it_in_the_Shopping_Summary() 
 	{
 
-		ProceedToCheckOutPage proceedToCheckOut = new ProceedToCheckOutPage(driver);
+		ProceedToCheckOutPage proceedToCheckOut = new ProceedToCheckOutPage(driver, wait);
 		proceedToCheckOut.click(proceedToCheckOut.proceedToCheckOut);
 
 		//Assertion
@@ -119,6 +121,8 @@ public class VerifyOrderStepDefinition {
 		System.out.println(summaryName);
 		System.out.println(summaryPrice);
 
-
+		driver.quit();
 	}  
-}
+
+
+} 

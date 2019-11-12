@@ -7,10 +7,15 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+		
 		features = "classpath:features",
-		glue={"stepDefinitions"}		
+		glue={"stepDefinitions"}
+		//tags = {"@First", "@Second"},
+		// plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"}
 		) 
 
 public class TestRunner {
+	
+	
 	
 }

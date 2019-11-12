@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.Resource;
 
-public class TshirtImagePage{
+
+public class TshirtImagePage extends Resource{
 
 	WebDriver driver;
 	WebDriverWait wait;
@@ -18,15 +20,6 @@ public class TshirtImagePage{
 		this.wait = new WebDriverWait(driver, 20);
 	}
 
-	public void click (By elementLocation) {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
-		driver.findElement(elementLocation).click();
-	}
 
-	/*	public void click_Tshirt_Image()
-	{
-		wait.until(ExpectedConditions.visibilityOfElementLocated(tshirtImage));
-		driver.findElement(tshirtImage).click();
-	} */
 
 }

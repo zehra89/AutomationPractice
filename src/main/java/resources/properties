@@ -1,0 +1,3 @@
+environment=test
+url= http://automationpractice.com/index.php
+reportConfigPath = /home/zehra/eclipse-workspace/AutomationPracticeFramework/src/main/java/resources/extent-config.xml

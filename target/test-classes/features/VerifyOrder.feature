@@ -1,3 +1,4 @@
+@First
 Feature: Verify t-shirt Order
 
 Scenario: A user verifies the tshirt order before paying

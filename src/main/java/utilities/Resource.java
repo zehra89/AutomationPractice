@@ -14,6 +14,7 @@ public class Resource {
 	public static WebDriver driver;
 	public static String projectPath = null;
 	public static WebDriverWait wait;
+	String Url = "http://automationpractice.com/index.php";
 
 
 	public static WebDriver initialiseBrowser()
@@ -48,7 +49,7 @@ public class Resource {
 
 
 	public String readText (By elementLocation) {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
 		return driver.findElement(elementLocation).getText();
 	}
 
@@ -70,6 +71,13 @@ public class Resource {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation2));
 		click(elementLocation2);
 	}
+	
+	public void clear(By elementLocation)
+	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
+		driver.findElement(elementLocation).clear();
+	}
+	
 
 	public  <TPage> TPage GetInstance (Class<TPage> pageClass) {
 		try {
@@ -79,6 +87,7 @@ public class Resource {
 			return null;
 		}
 	}
+	  
 }
 
 

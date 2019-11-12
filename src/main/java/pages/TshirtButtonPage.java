@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.Resource;
 
-public class TshirtButtonPage{
+
+public class TshirtButtonPage extends Resource{
 
 	WebDriver driver;
 	WebDriverWait wait;
@@ -19,9 +21,6 @@ public class TshirtButtonPage{
 	}
 
 
-	public void click(By elementLocation) {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
-		driver.findElement(elementLocation).click();
-	} 
+
 
 }
